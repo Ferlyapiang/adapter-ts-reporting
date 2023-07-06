@@ -1,0 +1,25 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model mb_trx_apply {
+  id                      Int       @id @default(autoincrement())
+  application_date        DateTime  @default(now())
+  mtn_id                  String?
+  customer_name           String?
+  phone_number            String?
+  status_transaction      String?
+  nik                     String?
+  card_type_name          String?
+  automatic_payment_type  String?
+  email_estatement        String?
+  name_on_card            String?
+  home_phone_number       String?
+  
+}
+
