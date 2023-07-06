@@ -15,7 +15,9 @@ export class GetHistoryApplyCCUsecaseImpl implements GetHistoryApplyCCUsecase{
 
     async execute(dateStart: Date, dateEnd: Date): Promise<GenericResponse<HistoryApplyCC[]>> {
         try {
-            const result = await this.historyApplyCCRepository.getHistoryApplyCC(dateStart, dateEnd);
+            const startDate = new Date(dateStart);
+            const endDate = new Date(dateEnd);
+            const result = await this.historyApplyCCRepository.getHistoryApplyCC(startDate, endDate);
             return{
                 success: true,
                 message: 'Success to get History Apply CC.',

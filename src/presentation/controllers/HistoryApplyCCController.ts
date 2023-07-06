@@ -9,13 +9,9 @@ export class HistoryApplyCCController{
     }
 
     public async getHistoryApplyCC(req: Request, res: Response): Promise<void> {
-        const { dateStart, dateEnd } = req.query; // Dapatkan tanggal mulai dan akhir dari query params
-
-    // Pastikan dateStart dan dateEnd adalah Date objects sesuai kebutuhan Anda
-    const startDate = new Date(dateStart as string);
-    const endDate = new Date(dateEnd as string);
-
-    const historyApplyCC = await this.getHistoryApplyCCUsecase.execute(startDate, endDate);
+        const { dateStart, dateEnd } = req.body;
+  
+    const historyApplyCC = await this.getHistoryApplyCCUsecase.execute(dateStart, dateEnd);
 
     if (historyApplyCC) {
       res.status(200).json(historyApplyCC);
