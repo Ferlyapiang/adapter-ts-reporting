@@ -1,6 +1,6 @@
 import { GenericResponse } from "../../../application/responses/GenericResponse";
-import { HistoryApplyCC } from "../../models/HistoryApplyCC";
+import { HistoryApplyCC,CountHistoryApplyCC } from "../../models/HistoryApplyCC";
 
 export interface GetHistoryApplyCCUsecase{
-    execute(dateStart: Date, dateEnd: Date) : Promise<GenericResponse<HistoryApplyCC[]>>
+    execute(dateStart: Date, dateEnd: Date, pageNum: number, sizeNum: number) : Promise<GenericResponse<HistoryApplyCC[]>>
 }
